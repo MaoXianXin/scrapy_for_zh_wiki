@@ -2,7 +2,7 @@
 import scrapy
 from scrapy.selector import Selector
 from items import ContentItem
-from queue import Queue
+from run_queue import Queue
 import time
 from langconv import *
 from filter_words import filter_url
@@ -64,7 +64,7 @@ class WiKiSpider(scrapy.Spider):
         # self.start_urls = self.urlQueue.candidates
         # 说明该请求时一个分类
         print('this_url=', this_url)
-        self.urlQueue.load_npy()
+        # self.urlQueue.load_npy()
         if 'Category:' in this_url:
             yield scrapy.Request(this_url, callback=self.parse_category, dont_filter=True)
         else:
@@ -144,7 +144,7 @@ class WiKiSpider(scrapy.Spider):
         # self.urlQueue.add_candidates(candidate_lists)
         print('候选请求数=', len(self.urlQueue.candidates))
         print('已处理请求数=', len(self.urlQueue.has_viewd))
-        self.urlQueue.save_has_viewd()
+        # self.urlQueue.save_has_viewd()
         # 将当前页面的信息保存下来
         # print(content_entity)
         # 如果当前的content的标题或分类属于需要过滤的词（例如我们不想爬取跟游戏有关的，所以包含游戏的请求或分类都不保存）

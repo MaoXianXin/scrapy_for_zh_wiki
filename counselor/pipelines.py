@@ -15,7 +15,7 @@ class WikiPipeline(object):
         return item
     def writeFile(self, data):
         # print('========',len(data),'=========')
-        dir = '../data_process/origin_page/'
+        dir = '/home/csdn/Downloads/Github_repo/scrapy_for_zh_wiki/data_process/origin_page/'
         with open(dir + data['content_entity'] + '.txt', 'w', encoding='utf-8') as fw:
             fw.write('标题：' + data['content_entity'] + '\n')
             fw.write('分类：' + data['category'] + '\n')

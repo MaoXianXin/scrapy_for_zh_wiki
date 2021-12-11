@@ -1,0 +1,12 @@
+
+counselor/__pycache__/
+
+*.pyc
+
+*.txt
+
+*.npy
+
+*.xml
+
+.idea/
